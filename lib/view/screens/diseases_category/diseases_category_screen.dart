@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:schizophrenia/components/constants.dart';
-import 'package:schizophrenia/view/screens/image_upload_screen/image_uploade_screen.dart';
+
+import '../../../components/constants.dart';
+import '../image_upload_screen/image_uploade_screen.dart';
 
 enum Carddiseases { schizoprhenia, epilepsy, elzheimar }
 
@@ -40,8 +41,8 @@ class _DiseasesCategoryScreenState extends State<DiseasesCategoryScreen> {
                   ),
                   onPressed: () {},
                 ),
-                const SizedBox(
-                  width: 40,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .050,
                 ),
                 Text(
                   'What Do You Suffer?',
@@ -50,7 +51,7 @@ class _DiseasesCategoryScreenState extends State<DiseasesCategoryScreen> {
               ],
             ),
 
-         /*   Container(
+            /*   Container(
              // width: 380,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 210, 208, 208),
@@ -66,33 +67,33 @@ class _DiseasesCategoryScreenState extends State<DiseasesCategoryScreen> {
                 ),
               ),
             ),*/
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .070,
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height:500 ,
-             margin: EdgeInsets.only(right: 5,left: 5,bottom: 40),
+              height: MediaQuery.of(context).size.height * .53,
+              margin: const EdgeInsets.only(right: 5, left: 5, bottom: 40),
               child: GridView.builder(
-                  itemBuilder: ((context, index) => Diseasecard(
-                        diseaseimage: diseasesImages[index],
-                        diseasename: diseases[index],
-                        function: () {
-                          setState(() {
-                            currrentCount = index;
-                          });
-                        },
-                        isSelected: currrentCount == index,
-                      )),
-                  itemCount: 3,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 7 / 6,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      mainAxisExtent: 230)),
+                itemBuilder: ((context, index) => Diseasecard(
+                      diseaseimage: diseasesImages[index],
+                      diseasename: diseases[index],
+                      function: () {
+                        setState(() {
+                          currrentCount = index;
+                        });
+                      },
+                      isSelected: currrentCount == index,
+                    )),
+                itemCount: 3,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 7 / 6,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    mainAxisExtent: 230),
+              ),
             ),
-
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -107,7 +108,7 @@ class _DiseasesCategoryScreenState extends State<DiseasesCategoryScreen> {
                         builder: (context) => const ImageUploadePage(),
                       ));
                 },
-                child:Text(
+                child: const Text(
                   'Next',
                   style: TextStyle(
                     color: Colors.white,
@@ -147,18 +148,24 @@ class Diseasecard extends StatelessWidget {
               width: 2,
               color: isSelected ? Constants.secondryColor : Colors.grey),
           borderRadius: BorderRadius.circular(20),
-         /* image: DecorationImage(
+          /* image: DecorationImage(
             image: AssetImage(diseaseimage),
           ),*/
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(children: [
-            Image.asset(diseaseimage,fit: BoxFit.cover,),
-            SizedBox(height: 20,),
+            Image.asset(
+              diseaseimage,
+              fit: BoxFit.cover,
+              color: isSelected ? Constants.secondryColor : Colors.grey,
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * .010),
             Text(
               diseasename,
-              style:TextStyle(fontSize: 20,color: isSelected ? Constants.secondryColor : Colors.black),
+              style: TextStyle(
+                  fontSize: 20,
+                  color: isSelected ? Constants.secondryColor : Colors.black),
             ),
           ]),
         ),

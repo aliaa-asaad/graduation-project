@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:schizophrenia/components/components.dart';
 
+import '../../../components/components.dart';
 
 class UploadApnormalResultPage extends StatelessWidget {
   const UploadApnormalResultPage({Key? key}) : super(key: key);
@@ -10,19 +10,17 @@ class UploadApnormalResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
-      
       body: Container(
-         width: double.infinity,
+        width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  
               Colors.white,
-               Colors.white,
-                Colors.white,
+              Colors.white,
+              Colors.white,
               Color.fromARGB(255, 235, 195, 242)
             ])),
         child: Column(
@@ -36,11 +34,13 @@ class UploadApnormalResultPage extends StatelessWidget {
             SizedBox(
               height: 15.0,
             ),
-            defaultTextLable(text: 'Abnormal'),
+            defaultTextLable(text: 'Abnormal and have \n      Schizophrenia'),
             textDescription(
-                textDescription: "Don\'t worry \n we are with you step by step "),
+                textDescription:
+                    "Don\'t worry \n we are with you step by step "),
           ],
         ),
       ),
     ));
-  }    }  
+  }
+}

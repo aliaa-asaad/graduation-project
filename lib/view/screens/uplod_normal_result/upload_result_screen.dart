@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:schizophrenia/components/components.dart';
+import '../../../components/components.dart';
 
 class UploadNormalResultPage extends StatelessWidget {
   const UploadNormalResultPage({Key? key}) : super(key: key);

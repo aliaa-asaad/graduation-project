@@ -1,18 +1,14 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
-import 'package:schizophrenia/components/components.dart';
-import 'package:schizophrenia/view/screens/login_screen/login_screen.dart';
+
+import '../../../components/components.dart';
 import '../../../widgets/auth_text.dart';
 import '../../../widgets/auth_text_field.dart';
 import '../../../widgets/route_text.dart';
 import '../navigation_bar/navigator.dart';
-import '../patient_home/patient_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
-  SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();

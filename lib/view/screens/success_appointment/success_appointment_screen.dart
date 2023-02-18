@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:schizophrenia/components/components.dart';
+
+import '../../../components/components.dart';
 
 class SuccessfulAppointmentPage extends StatelessWidget {
   const SuccessfulAppointmentPage({Key? key}) : super(key: key);

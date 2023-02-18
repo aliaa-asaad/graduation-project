@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:schizophrenia/components/components.dart';
+
+import '../../components/components.dart';
 
 class UploadNormalResultPage extends StatelessWidget {
   const UploadNormalResultPage({Key? key}) : super(key: key);

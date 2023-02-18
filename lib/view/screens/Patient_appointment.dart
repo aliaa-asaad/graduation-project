@@ -2,7 +2,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pandabar/pandabar.dart';
-
 import 'package:schizophrenia/components/constants.dart';
 
 import '../../../components/components.dart';

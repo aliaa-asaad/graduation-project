@@ -8,8 +8,8 @@ class IntroPage1 extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          const SizedBox(
-            height: 60,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .070,
           ),
           const Text(
             "Health Tips",
@@ -18,8 +18,8 @@ class IntroPage1 extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(
-            height: 60,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .070,
           ),
           const SizedBox(
             width: 500,
@@ -32,13 +32,16 @@ class IntroPage1 extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 40,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .050,
           ),
-          Image.asset("assets/images/71064266-6c06-4d43-8495-48a3c90b8cb6.jpg",width: double.infinity,height: 400,)
+          Image.asset(
+            "assets/images/71064266-6c06-4d43-8495-48a3c90b8cb6.jpg",
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height*.48,
+          )
         ],
       ),
     );
   }
 }
-

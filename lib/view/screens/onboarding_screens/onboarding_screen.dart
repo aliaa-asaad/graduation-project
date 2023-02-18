@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:schizophrenia/constants.dart';
-import 'package:schizophrenia/view/screens/login_screen/login_screen.dart';
+import '../../../constants.dart';
+import '../login_screen/login_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'Intro Screens/intro_page1.dart';
 import 'Intro Screens/intro_page2.dart';
@@ -40,8 +40,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             alignment: const Alignment(0, .9),
             child: Row(
               children: [
-                const SizedBox(
-                  width: 25,
+                 SizedBox(
+                  width: MediaQuery.of(context).size.width*0.070,
                 ),
                 //skip button
                 onlastpage

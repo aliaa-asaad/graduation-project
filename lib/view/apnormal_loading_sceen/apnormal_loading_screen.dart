@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'uplod_normal_result/upload_result_screen.dart';
+import '../screens/upload_apnormal_result_screen/upload_apnormal_result_screen.dart';
+import '../screens/uplod_normal_result/upload_result_screen.dart';
 
-class LoadingScreen extends StatefulWidget {
-  const LoadingScreen({Key? key}) : super(key: key);
+class ApnormalLoadingScreen extends StatefulWidget {
+  const ApnormalLoadingScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoadingScreen> createState() => _LoadingScreenState();
+  State<ApnormalLoadingScreen> createState() => _ApnormalLoadingScreen();
 }
 
-class _LoadingScreenState extends State<LoadingScreen>
+class _ApnormalLoadingScreen extends State<ApnormalLoadingScreen>
     with SingleTickerProviderStateMixin {
   @override
   late final AnimationController _controller = AnimationController(
@@ -36,20 +37,20 @@ class _LoadingScreenState extends State<LoadingScreen>
           Center(
             child: TweenAnimationBuilder<double>(
               tween: Tween<double>(begin: 0, end: 1),
-              duration: Duration(seconds: 3),
+              duration: const Duration(seconds: 3),
               builder: (BuildContext context, double opacity, Widget? child) {
                 return AnimatedOpacity(
                   opacity: opacity,
-                  duration: Duration(seconds: 3),
+                  duration: const Duration(seconds: 3),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
+                    children: const [
                       // Image.asset('assets/images/asoslogo.png',
                       //     width: MediaQuery.of(context).size.width - 20),
-                      const SizedBox(
+                       SizedBox(
                         height: 20,
                       ),
-                      const CircularProgressIndicator(
+                       CircularProgressIndicator(
                         color: Colors.purple,
                       ),
                     ],
@@ -58,11 +59,11 @@ class _LoadingScreenState extends State<LoadingScreen>
               },
               onEnd: () async {
                 await Future.delayed(
-                  Duration(seconds: 2),
+                  const Duration(seconds: 2),
                   () => Navigator.pushReplacement(
                     context,
                     AnimationTransition(
-                      page: const UploadNormalResultPage(),
+                      page: const UploadApnormalResultPage(),
                     ),
                   ),
                 );
@@ -82,8 +83,8 @@ class AnimationTransition extends PageRouteBuilder {
       : super(
             pageBuilder: (context, animation, animation2) => page,
             transitionsBuilder: (context, animation, animation2, child) {
-              var begin = Offset(0, -1);
-              var end = Offset(0, 0);
+              var begin = const Offset(0, -1);
+              var end = const Offset(0, 0);
               var tween = Tween(begin: begin, end: end);
               var curveanimate =
                   CurvedAnimation(parent: animation, curve: Curves.easeInOut);

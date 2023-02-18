@@ -8,19 +8,19 @@ class IntroPage2 extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          const SizedBox(
-            height: 60,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .070,
           ),
           Row(
-            children: const [
+            children: [
               SizedBox(
-                width: 15,
+                width: MediaQuery.of(context).size.width * 0.035,
               ),
-              Icon(Icons.arrow_back_ios_rounded),
+              const Icon(Icons.arrow_back_ios_rounded),
               SizedBox(
-                width: 85,
+                width: MediaQuery.of(context).size.width * 0.19,
               ),
-              Text(
+              const Text(
                 "Medical History",
                 style: TextStyle(
                   fontSize: 24,
@@ -29,12 +29,12 @@ class IntroPage2 extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 60,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .070,
           ),
-          const SizedBox(
-            width: 500,
-            child:  Text(
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 1,
+            child: const Text(
               "A complete medical history includes a more in-depth inquiry into the patient's medical issues which includes all diseases and illnesses currently being treated",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -43,10 +43,14 @@ class IntroPage2 extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 30,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .086,
           ),
-          Image.asset("assets/images/9ac4d9d7-e4ce-4df4-88b1-82dcc6ca0832.jpg",width: double.infinity,height: 400)
+          Image.asset(
+            "assets/images/9ac4d9d7-e4ce-4df4-88b1-82dcc6ca0832.jpg",
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * .45,
+          )
         ],
       ),
     );

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:pandabar/pandabar.dart';
-import 'package:schizophrenia/components/components.dart';
-import 'package:schizophrenia/constants.dart';
+import '../../../components/components.dart';
+import '../../../constants.dart';
 
 class PatientHomePage extends StatefulWidget {
   const PatientHomePage({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
                   onPressed: () {},
                   icon: const Icon(
                     Icons.notifications_active,
-                    color: Colors.purple,
+                    color: Constants.secondryColor,
                   )),
             )
           ],
@@ -37,7 +37,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               backgroundImage: AssetImage('assets/images/profile.jpg'),
             ),
             const ListTile(
@@ -61,10 +61,9 @@ class _PatientHomePageState extends State<PatientHomePage> {
           ],
         ),
       ),
-
       extendBodyBehindAppBar: true,
 
-     /* appBar: AppBar(
+      /* appBar: AppBar(
         bottomOpacity: 0.2,iconTheme: IconThemeData(opacity: 0),
         elevation: 0,
         backgroundColor: Colors.transparent,),*/
@@ -82,8 +81,8 @@ class _PatientHomePageState extends State<PatientHomePage> {
           child: SingleChildScrollView(
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const SizedBox(
-                height: 50,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .099,
               ),
               // Row(
               //   children: [
@@ -125,9 +124,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 20.0,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * .035),
               InkWell(
                 onTap: () {},
                 child: Container(
@@ -146,7 +143,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
                       ),
                       const Text(
                         'Search',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.grey,
                           fontFamily: 'Montserrat',
                           fontSize: 15.0,
@@ -158,18 +155,18 @@ class _PatientHomePageState extends State<PatientHomePage> {
               ),
               textRow(text: 'Discover', TextedButton: 'More'),
               SizedBox(
-                height: 250,
+                height: MediaQuery.of(context).size.height * .26,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
                     discoverDiseasesType(
                         text: 'Electroencephalogram(EEG)\nDevice'),
-                    const SizedBox(
-                      width: 15,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .040,
                     ),
                     discoverDiseasesType(text: 'Diseases detected by EEG'),
-                    const SizedBox(
-                      width: 15,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .040,
                     ),
                     discoverDiseasesType(text: 'Prevention'),
                   ],
@@ -179,16 +176,16 @@ class _PatientHomePageState extends State<PatientHomePage> {
               Row(
                 children: [
                   Expanded(child: diseaseType(text: 'Shizophrenia')),
-                  const SizedBox(
-                    width: 15.0,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .030,
                   ),
                   Expanded(child: diseaseType(text: 'Epilepsy')),
-                  const SizedBox(
-                    width: 15.0,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .030,
                   ),
                   Expanded(child: diseaseType(text: 'Alzheimer')),
-                  const SizedBox(
-                    width: 15.0,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .030,
                   ),
                 ],
               ),
@@ -205,17 +202,17 @@ class _PatientHomePageState extends State<PatientHomePage> {
                         children: [
                           const CircleAvatar(
                             backgroundImage:
-                                const AssetImage('assets/images/profile.jpg'),
+                                AssetImage('assets/images/profile.jpg'),
                           ),
-                          const SizedBox(
-                            width: 20,
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * .045,
                           ),
                           Text.rich(
                             TextSpan(
                               children: [
                                 const TextSpan(
                                   text: 'Dr.Nour Ahmed\n',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -235,8 +232,8 @@ class _PatientHomePageState extends State<PatientHomePage> {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 10.0,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * .010,
                       ),
                       Container(
                         decoration: BoxDecoration(
@@ -250,19 +247,19 @@ class _PatientHomePageState extends State<PatientHomePage> {
                               color: Colors.white,
                               size: 18,
                             ),
-                            const SizedBox(
-                              width: 15,
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * .050,
                             ),
                             const Text(
                               'Monday, November 30',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
                                 fontSize: 10.0,
                               ),
                             ),
-                            const SizedBox(
-                              width: 25,
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * .050,
                             ),
                             const Icon(
                               Icons.access_time_rounded,
@@ -271,7 +268,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
                             ),
                             const Text(
                               '11:00-12:00 AM',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
                                 fontSize: 10.0,
@@ -288,28 +285,22 @@ class _PatientHomePageState extends State<PatientHomePage> {
               recomendedTopDoctors(
                   docname: 'Dr.AliElmogy\n',
                   specilality: 'General practice-Cairo'),
-              const SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * .020),
               recomendedTopDoctors(
                   docname: 'Dr.AliElmogy\n',
                   specilality: 'General practice-Cairo'),
-              const SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * .020),
 
               recomendedTopDoctors(
                   docname: 'Dr.AliElmogy\n',
                   specilality: 'General practice-Cairo'),
-              const SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * .020),
 
               recomendedTopDoctors(
                   docname: 'Dr.AliElmogy\n',
                   specilality: 'General practice-Cairo'),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .020,
               ),
             ]),
           ),

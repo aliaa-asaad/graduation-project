@@ -8,20 +8,20 @@ class IntroPage3 extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          const SizedBox(
-            height: 60,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .070,
           ),
           Row(
-            children: const [
+            children: [
               SizedBox(
-                width: 15,
+                width: MediaQuery.of(context).size.width * 0.035,
               ),
-              Icon(Icons.arrow_back_ios_rounded),
+              const Icon(Icons.arrow_back_ios_rounded),
               SizedBox(
-                width: 65,
+                width: MediaQuery.of(context).size.width * 0.10,
               ),
-               Text(
-                "Welcome To Derpo",
+              const Text(
+                "Welcome To Brainiacs",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -29,12 +29,12 @@ class IntroPage3 extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 60,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .070,
           ),
-          const SizedBox(
-            width: 500,
-            child:  Text(
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 1,
+            child: const Text(
               "Speak comfortably and know how to process.All your information is confidentiall to us.Talk to your doctor.",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -43,10 +43,12 @@ class IntroPage3 extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .050,
           ),
-          Image.asset("assets/images/7b62167e-dac4-4ac5-9afa-ac4e9104ce1e.jpg",width: double.infinity,height: 400)
+          Image.asset("assets/images/7b62167e-dac4-4ac5-9afa-ac4e9104ce1e.jpg",
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height * .45)
         ],
       ),
     );

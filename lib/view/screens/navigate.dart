@@ -1,6 +1,6 @@
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:schizophrenia/view/screens/upload_result_screen.dart';
+import 'upload_result_screen.dart';
 
 
 class Navigate extends StatelessWidget {

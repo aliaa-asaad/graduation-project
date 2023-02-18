@@ -5,9 +5,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:schizophrenia/components/components.dart';
+import 'package:schizophrenia/view/apnormal_loading_sceen/apnormal_loading_screen.dart';
 import 'package:schizophrenia/view/screens/loadingscreen.dart';
-import 'package:schizophrenia/view/screens/upload_apnormal_result_screen/upload_apnormal_result_screen.dart';
-
 
 class ImageUploadePage extends StatelessWidget {
   const ImageUploadePage({Key? key}) : super(key: key);
@@ -48,7 +47,7 @@ class ImageUploadePage extends StatelessWidget {
               child: Container(
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(15.0)),
-                  height: 160,
+                  height: MediaQuery.of(context).size.height * .3,
                   padding: const EdgeInsets.all(16.0),
                   child: Center(
                     child: Text.rich(
@@ -78,8 +77,8 @@ class ImageUploadePage extends StatelessWidget {
                         ])),
                   )),
             ),
-            const SizedBox(
-              height: 20.0,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .020,
             ),
             Container(
               decoration: BoxDecoration(
@@ -94,8 +93,7 @@ class ImageUploadePage extends StatelessWidget {
                       children: [
                         const CircleAvatar(
                           radius: 16.0,
-                          backgroundColor:
-                              const Color.fromARGB(255, 131, 41, 147),
+                          backgroundColor: Color.fromARGB(255, 131, 41, 147),
                           child: Icon(
                             Icons.done_rounded,
                             color: Colors.white,
@@ -143,14 +141,15 @@ class ImageUploadePage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20.0,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .025,
             ),
             defaultClickedButton(
               text: 'CHECK',
               onpressed: () async {
-                FilePickerResult? result =
-                    await FilePicker.platform.pickFiles();
+                FilePickerResult? result = await FilePicker.platform.pickFiles(
+                  type: FileType.any,
+                );
 
                 if (result != null) {
                   PlatformFile file = result.files.first;
@@ -165,7 +164,7 @@ class ImageUploadePage extends StatelessWidget {
                     // ignore: use_build_context_synchronously
                     return Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return const UploadApnormalResultPage();
+                        return const ApnormalLoadingScreen();
                       },
                     ));
                   }

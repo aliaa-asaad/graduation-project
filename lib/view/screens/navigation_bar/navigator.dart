@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pandabar/main.view.dart';
 import 'package:pandabar/pandabar.dart';
-import 'package:schizophrenia/view/screens/diseases_category/diseases_category_screen.dart';
-import 'package:schizophrenia/view/screens/patient_home/patient_screen.dart';
+import '../diseases_category/diseases_category_screen.dart';
+import '../patient_home/patient_screen.dart';
 
 import '../../../constants.dart';
 

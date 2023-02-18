@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:schizophrenia/constants.dart';
+import '../constants.dart';
 
 class AuthTextField extends StatelessWidget {
   final TextInputType? input;
@@ -14,7 +14,7 @@ class AuthTextField extends StatelessWidget {
   // required String label,
   final String? hintText;
   final String? labelText;
-final  Function()? ontap;
+  final Function()? ontap;
   // required IconData prefix,
   final IconData? suffix;
   IconButton? clickedIcon;
@@ -31,7 +31,9 @@ final  Function()? ontap;
     this.validate,
     this.hintText,
     this.suffix,
-    this.clickedIcon, required this.suffixPressed, this.ontap,
+    this.clickedIcon,
+    required this.suffixPressed,
+    this.ontap,
   });
 
   @override
@@ -39,7 +41,7 @@ final  Function()? ontap;
     return TextFormField(
       controller: controller,
       keyboardType: type,
-      // obscureText: true,
+      obscureText: isPassword ? true : false,
       onFieldSubmitted: (String value) {
         print(value);
       },
@@ -70,7 +72,9 @@ final  Function()? ontap;
         prefixIcon: Icon(
           prefix,
         ),
-        border: UnderlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(8)),
+        border: UnderlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(8)),
       ),
     );
   }

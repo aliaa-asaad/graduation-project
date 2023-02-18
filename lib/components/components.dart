@@ -1,27 +1,30 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:schizophrenia/constants.dart';
-import 'package:schizophrenia/view/screens/upload_apnormal_result_screen.dart';
-import 'package:schizophrenia/view/screens/upload_result_screen.dart';
+import '../constants.dart';
+import '../view/screens/upload_apnormal_result_screen.dart';
+import '../view/screens/upload_result_screen.dart';
 
 defaultTextLable({
   @required String text = '',
   Color Textcolor = Colors.black,
 }) =>
-    Container(
-      child: Text(
-        text,
-        style: TextStyle(
-          fontFamily: 'Montserrat',
-          color: Textcolor,
-          fontWeight: FontWeight.bold,
-          fontSize: 24.0,
+    Center(
+      child: SizedBox(
+        // width: 300,
+        child: Text(
+          text,
+          style: TextStyle(
+            fontFamily: 'Montserrat',
+            color: Textcolor,
+            fontWeight: FontWeight.bold,
+            fontSize: 24.0,
+          ),
         ),
       ),
     );
 
- defaultTextButton({
+defaultTextButton({
   @required String textButton = '',
   Color textButtonColor = Colors.purple,
   double? fontSize = 20.0,
@@ -38,12 +41,12 @@ defaultTextLable({
               fontWeight: FontWeight.bold),
         ));
 
- imagePage({
+imagePage({
   @required image = 'assets/images/',
 }) =>
     SvgPicture.asset(image);
 
- textDescription(
+textDescription(
         {@required String textDescription = '',
         Color textColor = Colors.black}) =>
     Padding(
@@ -62,10 +65,8 @@ defaultTextLable({
       ),
     );
 
- defaultHomeRow(
-    {String rowTitle = '',
-    IconButton? iconButton,
-    Function()? function
+defaultHomeRow(
+    {String rowTitle = '', IconButton? iconButton, Function()? function
     // BuildContext? context,
     }) {
   return Row(
@@ -90,7 +91,7 @@ defaultTextLable({
   );
 }
 
- defaultText({
+defaultText({
   @required String text = '',
   dynamic textsize = 12.0,
 }) =>
@@ -107,7 +108,7 @@ defaultTextLable({
       ],
     );
 
- defaultFormField({
+defaultFormField({
   TextEditingController? controller,
   final IconData? prefix,
   TextInputType? type,
@@ -141,11 +142,11 @@ defaultTextLable({
         hintText: hintText,
 
         hintStyle: const TextStyle(
-
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.normal,
             color: Colors.grey),
-        labelStyle: const TextStyle(fontFamily: 'Montserrat',color: Colors.black),
+        labelStyle:
+            const TextStyle(fontFamily: 'Montserrat', color: Colors.black),
         suffixIcon: clickedIcon,
         prefixIcon: Icon(
           prefix,
@@ -157,7 +158,7 @@ defaultTextLable({
         //         suffix,
         //       )
         //     : null,
-      /*  suffixIcon: suffix != null
+        /*  suffixIcon: suffix != null
             ? IconButton(
                 onPressed: suffixPressed,
                 icon: Icon(
@@ -165,24 +166,23 @@ defaultTextLable({
                   color: Colors.grey,
                 ))
             : null,*/
-
       ),
     );
 
- defaultClickedButton({
+defaultClickedButton({
   String text = '',
   Function()? function,
   Function()? onpressed,
 }) =>
     InkWell(
-      onTap: function,
+      onTap: onpressed,
       child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(
               8.0,
             ),
-            gradient:  LinearGradient(
+            gradient: const LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [Constants.primaryColor, Constants.secondryColor]),
@@ -201,9 +201,7 @@ defaultTextLable({
           )),
     );
 
-
-
- textRow({
+textRow({
   @required final String text = '',
   final String TextedButton = '',
 }) =>
@@ -234,7 +232,7 @@ defaultTextLable({
       ],
     );
 
- discoverDiseasesType({
+discoverDiseasesType({
   String text = '',
 }) =>
     Column(
@@ -260,7 +258,7 @@ defaultTextLable({
       ],
     );
 
- diseaseType({String text = ''}) => Container(
+diseaseType({String text = ''}) => Container(
       width: 100,
       height: 50,
       decoration: BoxDecoration(
@@ -280,7 +278,7 @@ defaultTextLable({
       ),
     );
 
- recomendedTopDoctors({
+recomendedTopDoctors({
   String docname = '',
   String specilality = '',
 }) =>
@@ -336,7 +334,7 @@ defaultTextLable({
       ]),
     );
 
- AvailablePatients({
+AvailablePatients({
   String patientName = '',
   Color containercolor = Colors.grey,
   String diseasetype = '',
@@ -398,8 +396,8 @@ defaultAppBar({
   String appBartitle = '',
   IconButton? iconBack,
   TextButton? textButton,
-  Function()?onpressed,
-  String text='',
+  Function()? onpressed,
+  String text = '',
 }) =>
     AppBar(
       backgroundColor: Colors.white,
@@ -415,15 +413,20 @@ defaultAppBar({
           fontSize: 20,
         ),
       ),
-      actions: [TextButton(
-              onPressed: onpressed,
-              child: Text(text,style: const TextStyle(
-            fontFamily: 'Montserrat',
-            color: Colors.purple,
-            fontWeight: FontWeight.bold,
-            fontSize: 12.0,
-          ),),)],
-
+      actions: [
+        TextButton(
+          onPressed: onpressed,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontFamily: 'Montserrat',
+              color: Colors.purple,
+              fontWeight: FontWeight.bold,
+              fontSize: 12.0,
+            ),
+          ),
+        )
+      ],
     );
 
 Widget moreDetails(
@@ -473,7 +476,7 @@ Widget moreDetails(
                   ),
                 ],
               ) ;*/
-    Future<StatelessWidget> pickFile() async {
+Future<StatelessWidget> pickFile() async {
   FilePickerResult? result = await FilePicker.platform.pickFiles();
   PlatformFile file = result!.files.first;
 
@@ -491,8 +494,6 @@ Future navigate(BuildContext context) {
     },
   ));
 }
-
-
 
 class SearchBar extends StatelessWidget {
   Color searchbarcolor;
@@ -523,4 +524,3 @@ class SearchBar extends StatelessWidget {
     );
   }
 }
-

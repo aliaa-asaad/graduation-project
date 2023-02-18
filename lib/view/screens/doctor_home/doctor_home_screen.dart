@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:pandabar/main.view.dart';
 import 'package:pandabar/model.dart';
-import 'package:schizophrenia/components/components.dart';
+import '../../../components/components.dart';
 
 class DoctorHomePage extends StatefulWidget {
   const DoctorHomePage({Key? key}) : super(key: key);
