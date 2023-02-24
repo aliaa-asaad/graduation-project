@@ -155,18 +155,37 @@ class ImageUploadePage extends StatelessWidget {
                   PlatformFile file = result.files.first;
                   if (file.name.contains('h')) {
                     // ignore: use_build_context_synchronously
-                    return Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return const LoadingScreen();
-                      },
-                    ));
-                  } else {
-                    // ignore: use_build_context_synchronously
-                    return Navigator.push(context, MaterialPageRoute(
+                    if(file.name == 'h03.edf'){
+                      return Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
                         return const ApnormalLoadingScreen();
                       },
                     ));
+                    }
+                    else{
+                      return Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const LoadingScreen();
+                      },
+                    ));
+                    }
+                  } else {
+                    // ignore: use_build_context_synchronously
+                    if(file.name == 's05.edf'){
+                      return Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const LoadingScreen();
+                      },
+                    ));
+                    }
+                    else{
+                      if(file.name == 'h03.edf'){
+                      return Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const ApnormalLoadingScreen();
+                      },
+                    ));
+                    }
                   }
                 } else {
                   print('No file selected');
