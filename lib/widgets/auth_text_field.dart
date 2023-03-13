@@ -8,17 +8,17 @@ class AuthTextField extends StatelessWidget {
   final TextInputType? type;
   final Function? onSubmit;
   final Function? onChange;
-  final bool isPassword;
+  bool isPassword = false;
   final Function? validate;
 
   // required String label,
   final String? hintText;
   final String? labelText;
-final  Function()? ontap;
+  final Function()? ontap;
   // required IconData prefix,
   final IconData? suffix;
   IconButton? clickedIcon;
-  final Function() suffixPressed;
+  Function()? suffixPressed;
   AuthTextField({
     this.prefix,
     this.labelText,
@@ -31,7 +31,9 @@ final  Function()? ontap;
     this.validate,
     this.hintText,
     this.suffix,
-    this.clickedIcon, required this.suffixPressed, this.ontap,
+    this.clickedIcon,
+    this.suffixPressed,
+    this.ontap,
   });
 
   @override
@@ -39,7 +41,7 @@ final  Function()? ontap;
     return TextFormField(
       controller: controller,
       keyboardType: type,
-      // obscureText: true,
+      obscureText: isPassword,
       onFieldSubmitted: (String value) {
         print(value);
       },
@@ -65,12 +67,22 @@ final  Function()? ontap;
             color: Colors.grey),
         labelStyle:
             const TextStyle(fontFamily: 'Montserrat', color: Colors.black),
-        suffixIcon: clickedIcon,
+        suffixIcon: suffix != null
+            ? IconButton(
+                onPressed: suffixPressed,
+                icon: Icon(
+                  suffix,
+                  color: Colors.grey,
+                ))
+            : null,
+
         prefixIconColor: Constants.primaryColor,
         prefixIcon: Icon(
           prefix,
         ),
-        border: UnderlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(8)),
+        border: UnderlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(8)),
       ),
     );
   }

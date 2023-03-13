@@ -105,8 +105,8 @@ class _PatientHomePageState extends State<PatientHomePage> {
               //       ),
               //     )
               //   ],
-              // )
-              const Text.rich(
+              // ),
+               Text.rich(
                 TextSpan(
                   children: [
                     TextSpan(

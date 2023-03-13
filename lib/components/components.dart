@@ -21,7 +21,7 @@ defaultTextLable({
       ),
     );
 
- defaultTextButton({
+defaultTextButton({
   @required String textButton = '',
   Color textButtonColor = Colors.purple,
   double? fontSize = 20.0,
@@ -38,12 +38,12 @@ defaultTextLable({
               fontWeight: FontWeight.bold),
         ));
 
- imagePage({
+imagePage({
   @required image = 'assets/images/',
 }) =>
     SvgPicture.asset(image);
 
- textDescription(
+textDescription(
         {@required String textDescription = '',
         Color textColor = Colors.black}) =>
     Padding(
@@ -62,10 +62,8 @@ defaultTextLable({
       ),
     );
 
- defaultHomeRow(
-    {String rowTitle = '',
-    IconButton? iconButton,
-    Function()? function
+defaultHomeRow(
+    {String rowTitle = '', IconButton? iconButton, Function()? function
     // BuildContext? context,
     }) {
   return Row(
@@ -90,9 +88,9 @@ defaultTextLable({
   );
 }
 
- defaultText({
+defaultText({
   @required String text = '',
-  dynamic textsize = 12.0,
+  double textsize = 12.0,
 }) =>
     Row(
       children: [
@@ -107,7 +105,7 @@ defaultTextLable({
       ],
     );
 
- defaultFormField({
+defaultFormField({
   TextEditingController? controller,
   final IconData? prefix,
   TextInputType? type,
@@ -141,12 +139,12 @@ defaultTextLable({
         hintText: hintText,
 
         hintStyle: const TextStyle(
-
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.normal,
             color: Colors.grey),
-        labelStyle: const TextStyle(fontFamily: 'Montserrat',color: Colors.black),
-        suffixIcon: clickedIcon,
+        labelStyle:
+            const TextStyle(fontFamily: 'Montserrat', color: Colors.black),
+        // suffixIcon: clickedIcon,
         prefixIcon: Icon(
           prefix,
           color: Colors.black,
@@ -157,19 +155,18 @@ defaultTextLable({
         //         suffix,
         //       )
         //     : null,
-      /*  suffixIcon: suffix != null
+         suffixIcon: suffix != null
             ? IconButton(
                 onPressed: suffixPressed,
                 icon: Icon(
                   suffix,
                   color: Colors.grey,
                 ))
-            : null,*/
-
+            : null,
       ),
     );
 
- defaultClickedButton({
+defaultClickedButton({
   String text = '',
   Function()? function,
   Function()? onpressed,
@@ -182,13 +179,13 @@ defaultTextLable({
             borderRadius: BorderRadius.circular(
               8.0,
             ),
-            gradient:  LinearGradient(
+            gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [Constants.primaryColor, Constants.secondryColor]),
           ),
           child: TextButton(
-            onPressed: function,
+            onPressed: onpressed,
             child: Text(
               text,
               style: const TextStyle(
@@ -201,9 +198,7 @@ defaultTextLable({
           )),
     );
 
-
-
- textRow({
+textRow({
   @required final String text = '',
   final String TextedButton = '',
 }) =>
@@ -234,7 +229,7 @@ defaultTextLable({
       ],
     );
 
- discoverDiseasesType({
+discoverDiseasesType({
   String text = '',
 }) =>
     Column(
@@ -260,7 +255,7 @@ defaultTextLable({
       ],
     );
 
- diseaseType({String text = ''}) => Container(
+diseaseType({String text = ''}) => Container(
       width: 100,
       height: 50,
       decoration: BoxDecoration(
@@ -280,7 +275,7 @@ defaultTextLable({
       ),
     );
 
- recomendedTopDoctors({
+recomendedTopDoctors({
   String docname = '',
   String specilality = '',
 }) =>
@@ -336,7 +331,7 @@ defaultTextLable({
       ]),
     );
 
- AvailablePatients({
+AvailablePatients({
   String patientName = '',
   Color containercolor = Colors.grey,
   String diseasetype = '',
@@ -398,8 +393,8 @@ defaultAppBar({
   String appBartitle = '',
   IconButton? iconBack,
   TextButton? textButton,
-  Function()?onpressed,
-  String text='',
+  Function()? onpressed,
+  String text = '',
 }) =>
     AppBar(
       backgroundColor: Colors.white,
@@ -415,19 +410,27 @@ defaultAppBar({
           fontSize: 20,
         ),
       ),
-      actions: [TextButton(
-              onPressed: onpressed,
-              child: Text(text,style: const TextStyle(
-            fontFamily: 'Montserrat',
-            color: Colors.purple,
-            fontWeight: FontWeight.bold,
-            fontSize: 12.0,
-          ),),)],
-
+      actions: [
+        TextButton(
+          onPressed: onpressed,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontFamily: 'Montserrat',
+              color: Colors.purple,
+              fontWeight: FontWeight.bold,
+              fontSize: 12.0,
+            ),
+          ),
+        )
+      ],
     );
 
 Widget moreDetails(
-        {required String titlename, required String namedescription}) =>
+        {required String titlename,
+        required String namedescription,
+        Color textcolor = Colors.grey,
+        FontWeight fontWeight=FontWeight.normal,}) =>
     Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -435,7 +438,7 @@ Widget moreDetails(
           titlename,
           style: TextStyle(
             fontFamily: 'Montserrat',
-            color: Color.fromARGB(255, 236, 227, 227),
+            color: textcolor,
             fontSize: 15,
           ),
         ),
@@ -443,11 +446,18 @@ Widget moreDetails(
           namedescription,
           style: TextStyle(
             fontFamily: 'Montserrat',
-            color: Color.fromARGB(255, 236, 227, 227),
+            color: textcolor,
             fontSize: 15,
+            fontWeight: fontWeight,
           ),
         ),
       ],
+    );
+
+Widget spacerLine() => Container(
+      width: double.infinity,
+      height: 2,
+      color: const Color.fromARGB(255, 236, 227, 227),
     );
 
 /*Widget moreDetails({
@@ -473,7 +483,7 @@ Widget moreDetails(
                   ),
                 ],
               ) ;*/
-    Future<StatelessWidget> pickFile() async {
+Future<StatelessWidget> pickFile() async {
   FilePickerResult? result = await FilePicker.platform.pickFiles();
   PlatformFile file = result!.files.first;
 
@@ -491,8 +501,6 @@ Future navigate(BuildContext context) {
     },
   ));
 }
-
-
 
 class SearchBar extends StatelessWidget {
   Color searchbarcolor;
@@ -523,4 +531,3 @@ class SearchBar extends StatelessWidget {
     );
   }
 }
-

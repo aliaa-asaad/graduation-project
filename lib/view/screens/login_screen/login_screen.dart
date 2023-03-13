@@ -38,108 +38,96 @@ class _LoginScreenState extends State<LoginScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
       ),
       backgroundColor: Colors.white,
       body: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-          child: SafeArea(
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+        child: SafeArea(
           child: SingleChildScrollView(
-          child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-          Image.asset(
-          'assets/images/logo.png',
-          width: 120,
-          height: 120,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(
+                  'assets/images/logo.png',
+                  width: 120,
+                  height: 120,
+                ),
+                const Text(
+                  'Welcome Back!',
+                  style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.1,
+                ),
+                AuthTextField(
+                  prefix: Icons.person,
+                  labelText: 'User Name',
+                  input: TextInputType.name,
+                  controller: emailcontroller,
+                  isPassword: false,
+                  suffixPressed: () {},
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                AuthTextField(
+                  prefix: Icons.lock_outline,
+                  labelText: 'Password',
+                  input: TextInputType.visiblePassword,
+                  controller: passwordcontroller,
+                  type: TextInputType.visiblePassword,
+                  suffixPressed: () {
+                    setState(() {
+                      isPassword = !isPassword;
+                    });
+                  },
+                  validate: (value) {
+                    if (value!.isEmpty) {
+                      return 'Password is too short';
+                    }
+                    return null;
+                  },
+                  hintText: 'Must be at least 6 characters',
+                  // label: 'Password',
+                  suffix: isPassword ? Icons.visibility : Icons.visibility_off,
+                  isPassword: true,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.10,
+                ),
+                const AuthText(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.06,
+                ),
+                defaultClickedButton(
+                    text: 'LOGIN',
+                    function: () async {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => NavigateScreens()));
+                    }),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('You are new here? '),
+                    RouteText(
+                        text: 'Sign Up',
+                        funtion: () async {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => SignUpScreen()));
+                        }),
+                  ],
+                )
+              ],
+            ),
           ),
-          Text(
-            'Welcome Back!',
-            style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.bold,
-                fontSize: 20),
-          ),
-          SizedBox(
-            height: MediaQuery
-                .of(context)
-                .size
-                .height * 0.1,
-          ),
-          AuthTextField(
-            prefix: Icons.person,
-            labelText: 'User Name',
-            input: TextInputType.name,
-            controller: emailcontroller,
-            isPassword: false,
-            suffixPressed: () {},
-          ),
-          SizedBox(
-            height: MediaQuery
-                .of(context)
-                .size
-                .height * 0.03,
-          ),
-          AuthTextField(
-            prefix: Icons.lock_outline,
-            labelText: 'Password',
-            input: TextInputType.visiblePassword,
-            controller: passwordcontroller,
-            type: TextInputType.visiblePassword,
-            suffixPressed: () {
-              setState(() {
-                isPassword = !isPassword;
-              });
-            },
-            validate: (value) {
-              if (value!.isEmpty) {
-                return 'Password is too short';
-              }
-              return null;
-            },
-            hintText: 'Must be at least 6 characters',
-            // label: 'Password',
-            suffix:
-            isPassword ? Icons.visibility : Icons.visibility_off,
-            isPassword: true,
-          ),
-          SizedBox(
-            height: MediaQuery
-                .of(context)
-                .size
-                .height * 0.18,
-          ),
-          AuthText(),
-          SizedBox(
-            height: MediaQuery
-                .of(context)
-                .size
-                .height * 0.06,
-          ),
-          defaultClickedButton(text: 'LOGIN', function: () async {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => NavigateScreens()));
-          }),
-          const SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('You are new here? '),
-              RouteText(
-                  text: 'Sign Up',
-                  funtion: () async {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SignUpScreen()));
-                  }),
-            ],
-          )
-          ],
-
-    ),
-    ),
-    ),
-    ),
+        ),
+      ),
     ));
-    }
+  }
 }
